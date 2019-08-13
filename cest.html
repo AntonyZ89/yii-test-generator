@@ -1,0 +1,125 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cest</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+
+<body class="container">
+    <!-- <h1 class="text-center font-weight-bold">Gerador de Testes</h1> -->
+    <h2 class="font-weight-bold text-center bg-success text-white p-2 rounded-lg">Cest</h2>
+    <form onsubmit="return false;">
+        <div class="form-group col-md-12">
+            <label for="cest[classe]">Classe</label>
+            <input class="form-control" name="cest[classe]">
+        </div>
+
+
+        <div class="form-group col-12">
+            <label for="cest[namespace]">Namespace</label>
+            <input class="form-control" name="cest[namespace]">
+        </div>
+        <hr>
+        <div class="form-group col-12">
+            <h3 class="text-center">Use (imports)</h3>
+            <button type="button" class="btn btn-lg btn-success d-block adicionar_use"><i class="fas fa-plus"></i></button>
+
+            <ul class="use row">
+                <li class="row col-4">
+                    <input class="form-control col-9" name="cest[use][0]">
+                    <button type="button" class="remover btn btn-danger col-2 remover_use"><i class="fas fa-times"></i></button>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="form-group col-12">
+            <h3 class="text-center">Index Method</h3>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="cest[index][url]">URL</label>
+                    <input class="form-control" name="cest[index][url]">
+                </div>
+                <div class="form-group col-4">
+                    <label for="cest[index][text]">Texto</label>
+                    <input class="form-control" name="cest[index][text]">
+                </div>
+                <div class="form-group col-4">
+                    <label for="cest[index][element]">Elemento</label>
+                    <input class="form-control" name="cest[index][element]">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group col-12">
+            <h3 class="text-center">Create Method</h3>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="cest[create][url]">URL</label>
+                    <input class="form-control" name="cest[create][url]">
+                </div>
+                <div class="form-group col-4">
+                    <label for="cest[create][text]">Texto</label>
+                    <input class="form-control" name="cest[create][text]">
+                </div>
+                <div class="form-group col-1">
+                    <label for="cest[create][id]">ID</label>
+                    <input class="form-control" name="cest[create][id]">
+                </div>
+                <div class="form-group col-3">
+                    <label for="cest[create][element]">Elemento</label>
+                    <input class="form-control" name="cest[create][element]">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group col-12">
+            <h3 class="text-center">Update Method</h3>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="cest[update][url]">URL</label>
+                    <input class="form-control" name="cest[update][url]">
+                </div>
+                <div class="form-group col-4">
+                    <label for="cest[update][text]">Texto</label>
+                    <input class="form-control" name="cest[update][text]">
+                </div>
+                <div class="form-group col-1">
+                    <label for="cest[update][id]">ID</label>
+                    <input class="form-control" name="cest[update][id]">
+                </div>
+                <div class="form-group col-3">
+                    <label for="cest[update][element]">Elemento</label>
+                    <input class="form-control" name="cest[update][element]">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group col-12">
+            <h3 class="text-center">Delete Method</h3>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="cest[delete][url]">URL</label>
+                    <input class="form-control" name="cest[delete][url]">
+                </div>
+                <div class="form-group col-1">
+                    <label for="cest[delete][id]">ID</label>
+                    <input class="form-control" name="cest[delete][id]">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-lg btn-block btn-success" type="submit">Enviar</button>
+    </form>
+
+    <script src="/jquery"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/cest/cest_script.js"></script>
+</body>
+
+</html>

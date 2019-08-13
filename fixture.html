@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fixture</title>
+
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+
+<body class="container">
+    <!-- <h1 class="text-center font-weight-bold">Gerador de Testes</h1> -->
+    <h2 class="font-weight-bold text-center bg-info text-white p-2 rounded-lg">Fixture</h2>
+    <ul>
+        <li>
+            <form>
+                <div class="form-group col-md-12">
+                    <label for="fixture[classe]">Classe</label>
+                    <input class="form-control" name="fixture[classe]">
+                </div>
+
+                <hr>
+                <div class="form-group col-12">
+                    <h3 class="text-center">Dependencies</h3>
+                    <button class="btn btn-lg btn-success d-block adicionar_dependence"><i class="fas fa-plus"></i></button>
+
+                    <ul class="dependence row">
+                        <li class="row col-4">
+                            <input class="form-control col-10" name="fixture[dependence][0]" placeholder="Classe dependente">
+                            <button class="remover btn btn-danger col-2 remover_dependence"><i class="fas fa-times"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </li>
+    </ul>
+
+    <script src="/jquery"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/fixture/fixture_script.js"></script>
+</body>
+
+</html>

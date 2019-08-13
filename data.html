@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data</title>
+
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+
+<body class="container">
+    <!-- <h1 class="text-center font-weight-bold">Gerador de Testes</h1> -->
+    <h2 class="font-weight-bold text-center bg-primary text-white p-2 rounded-lg">Data</h2>
+    <ul>
+        <li>
+            <form>
+                <div class="form-group col-md-12">
+                    <label for="cest[classe]">Classe</label>
+                    <input class="form-control" name="cest[classe]">
+                </div>
+
+                <hr>
+                <div class="form-group col-12">
+                        <h3 class="text-center">Values</h3>
+                    <button class="btn btn-lg btn-success d-block adicionar_value"><i class="fas fa-plus"></i></button>
+
+                    <ul class="data row">
+                        <li class="row col-5">
+                            <input class="form-control col-4" name="cest[data][0][key]" placeholder="Chave">
+                            <div class="col-2 separador"><i class="fas fa-angle-double-right"></i></div>
+                            <input class="form-control col-4" name="cest[data][0][value]" placeholder="Valor">
+                            <button class="remover btn btn-danger col-2 remover_value"><i class="fas fa-times"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </li>
+    </ul>
+
+    <script src="/jquery"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/data/data_script.js"></script>
+</body>
+
+</html>

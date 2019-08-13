@@ -1,0 +1,54 @@
+body {
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+form {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.adicionar_use, .adicionar_value, .adicionar_dependence {
+    margin-top: 10px;
+}
+
+ul.use, ul.data, ul.dependence {
+    justify-content: center;
+}
+
+ul.use > li, ul.data > li, ul.dependence > li {
+    margin: 5px 2px 2px 2px;
+    margin-top: 5px;
+}
+
+ul.use > li > input, ul.data > li > input:nth-of-type(2), ul.dependence > li > input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.remover_use, .remover_value, .remover_dependence {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.separador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.geradores {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.geradores > a {
+    width: 200px;
+}
