@@ -17,7 +17,7 @@ form {
     margin-top: 10px;
 }
 
-ul.use, ul.data, ul.dependence {
+ul.use, ul.data, ul.dependence, ul._ac {
     justify-content: center;
 }
 
@@ -29,6 +29,12 @@ ul.use > li, ul.data > li, ul.dependence > li {
 ul.use > li > input, ul.data > li > input:nth-of-type(2), ul.dependence > li > input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+
+ul.action > li {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .remover_use, .remover_value, .remover_dependence {

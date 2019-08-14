@@ -6,22 +6,21 @@ var exports = module.exports = {};
 /**
  * @param {Object} _
  * 
- * @param {String} _.CLASSE
- * 
- * @param {Object} _.DATA
- * @param {Object} _.DATA.VALUES
+ * @param {Object} _.data
+ * @param {Object} _.data.classe
+ * @param {Object} _.data.values
  */
 exports.createData = function (_) {
-
     if (!fs.existsSync("_data"))
         fs.mkdirSync('_data');
-    fs.writeFile(`_data/${_.CLASSE}Fixture.php`, `
+    fs.writeFile(`_data/${_.data.classe}_data.php`, `
 <?php
 return[
     [
         ${
-        Object.entries(_.DATA.VALUES).map(function (v) {
-            return `'${v[0]}' => '${v[1]}'`;
+        Object.keys(_.data.values).map(function (v) {
+            let val = _.data.values[v];
+            return `'${val.key}' => '${val.value}'`;
         }).join(",\n\t\t")
         }
     ]
@@ -30,7 +29,7 @@ return[
                 return console.log(err);
             }
 
-            console.log(`${_.CLASSE}Fixture criado!`);
+            console.log(`${_.data.classe}_data criado!`);
         });
 }
 

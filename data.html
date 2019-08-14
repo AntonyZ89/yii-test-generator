@@ -19,24 +19,26 @@
         <li>
             <form>
                 <div class="form-group col-md-12">
-                    <label for="cest[classe]">Classe</label>
-                    <input class="form-control" name="cest[classe]">
+                    <label for="data[classe]">Classe</label>
+                    <input class="form-control" name="data[classe]">
                 </div>
 
                 <hr>
-                <div class="form-group col-12">
+                <div class="form-group col-md-12">
                         <h3 class="text-center">Values</h3>
                     <button class="btn btn-lg btn-success d-block adicionar_value"><i class="fas fa-plus"></i></button>
 
                     <ul class="data row">
-                        <li class="row col-5">
-                            <input class="form-control col-4" name="cest[data][0][key]" placeholder="Chave">
-                            <div class="col-2 separador"><i class="fas fa-angle-double-right"></i></div>
-                            <input class="form-control col-4" name="cest[data][0][value]" placeholder="Valor">
-                            <button class="remover btn btn-danger col-2 remover_value"><i class="fas fa-times"></i></button>
+                        <li class="row col-md-5">
+                            <input class="form-control col-md-4" name="data[values][0][key]" placeholder="Chave">
+                            <div class="col-md-2 separador"><i class="fas fa-angle-double-right"></i></div>
+                            <input class="form-control col-md-4" name="data[values][0][value]" placeholder="Valor">
+                            <button class="remover btn btn-danger col-md-2 remover_value"><i class="fas fa-times"></i></button>
                         </li>
                     </ul>
                 </div>
+
+                <button class="btn btn-lg btn-block btn-success" type="submit">Enviar</button>
             </form>
         </li>
     </ul>

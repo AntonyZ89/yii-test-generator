@@ -6,46 +6,35 @@ var exports = module.exports = {};
 /**
  * @param {Object} _
  * 
- * @param {String} _.CLASSE
+ * @param {Object} _.cest
  * 
- * @param {Object} _.CEST
+ * @param {String} _.cest.classe
+ * @param {String} _.cest.namespace
+ * @param {Object} _.cest.fixture
  * 
- * @param {String} _.CEST.NAMESPACE
- * @param {Array}  _.CEST.USE
+ * @param {Object} _.cest.methods
  * 
- * @param {Object} _.CEST.INDEX
- * @param {Object} _.CEST.INDEX.URL
- * @param {Object} _.CEST.INDEX.TEXT
- * @param {Object} _.CEST.INDEX.ELEMENT
+ * @param {Object} _.cest.methods
  * 
- * @param {Object} _.CEST.CREATE
- * @param {String} _.CEST.CREATE.URL
- * @param {Number} _.CEST.CREATE.ID
- * @param {String} _.CEST.CREATE.TEXT
- * @param {String} _.CEST.CREATE.ELEMENT
- * 
- * @param {Object} _.CEST.UPDATE
- * @param {String} _.CEST.UPDATE.URL
- * @param {Number} _.CEST.UPDATE.ID
- * @param {String} _.CEST.UPDATE.TEXT
- * @param {String} _.CEST.UPDATE.ELEMENT
- * 
- * @param {Object} _.CEST.DELETE
- * @param {String} _.CEST.DELETE.URL
- * @param {Number} _.CEST.DELETE.ID
  */
 exports.createCest = function (_) {
-
+    console.log(_);
+    console.log('\n\n');
     if(!fs.existsSync("functional"))
         fs.mkdirSync('functional');
-    fs.writeFile(`functional/${_.CLASSE}.php`, `
+    fs.writeFile(`functional/${_.cest.classe}.php`, `
 
 <?php
-${_.CEST.NAMESPACE};
+namespace ${_.cest.namespace};
 
-${_.CEST.USE.join("\n")}
+use frontend\\tests\\FunctionalTester;
+${Object.keys(_.cest.fixture).map(function(v, i) {
+    let fixture = _.cest.fixture[v];
+    return `use common\\fixtures\\${fixture}Fixture;`
+}).join("\n")}
+use Yii;
 
-class ${_.CLASSE}
+class ${_.cest.classe}
 {
     /**
      * Load fixtures before db transaction begin
@@ -57,45 +46,36 @@ class ${_.CLASSE}
     public function _fixtures()
     {
         return [
-            'acv' => [
-                'class' => AcvFixture::class,
-            ],
-            'user' => [
-                'class' => UserFixture::class,
-            ],
+            ${Object.keys(_.cest.fixture).map(function(v, i) {
+                let fixture = _.cest.fixture[v];
+                return `'${fixture.replace(/([A-Z])/g, '_$1').replace('_', '').toLowerCase()}' => ['class' => ${fixture}Fixture::class]`;
+            }).join(",\n\t\t\t")}
         ];
     }
 
+    ${Object.keys(_.cest.methods).map(function(key, index) {
+        let m = _.cest.methods[key];
+
+        let nome = m.nome;
+        delete m.nome;
+
+        return `
     /**
      * @param FunctionalTester $I
      */
-    public function visitIndex(FunctionalTester $I)
+    public function ${nome}(FunctionalTester $I)
     {
-        $I->amLoggedInAs(1);
-        $I->amOnPage(['${_.CEST.INDEX.URL}']);
-        $I->see('${_.CEST.INDEX.TEXT}', '${_.CEST.INDEX.ELEMENT}');
-    }
-
-    public function visitCreate(FunctionalTester $I)
-    {
-        $I->amLoggedInAs(1);
-        $I->amOnPage(['${_.CEST.CREATE.URL}', 'id' => ${_.CEST.CREATE.ID}]);
-        $I->see('${_.CEST.CREATE.TEXT}', '${_.CEST.CREATE.ELEMENT}');
-    }
-
-    public function visitUpdate(FunctionalTester $I)
-    {
-        $I->amLoggedInAs(1);
-        $I->amOnPage(['${_.CEST.UPDATE.URL}', 'id' => ${_.CEST.UPDATE.ID}]);
-        //$I->see('${_.CEST.UPDATE.TEXT}', '${_.CEST.UPDATE.ELEMENT}');
-        $I->seeInField('${_.CEST.UPDATE.ELEMENT}', '${_.CEST.UPDATE.TEXT}');
-    }
-
-    public function visitDelete(FunctionalTester $I)
-    {
-        $I->amLoggedInAs(1);
-        $I->sendAjaxPostRequest(['${_.CEST.DELETE.URL}', 'id' => ${_.CEST.DELETE.ID}]);
-    }
+        ${Object.keys(m).map(function (key, index) {
+            return Object.keys(m[key]).map(function (k, i) {
+                let valor = m[key][k];
+                if(!/\[.+\]/.test(valor)) {
+                    valor = `"${valor}"`;
+                }
+                return `$I->${key}(${valor});`;
+            }).join('\n\t\t')
+        }).join('\n\t\t')}
+    }`;
+      }).join('\n')}
 }
 
 `, function (err) {
@@ -103,6 +83,6 @@ class ${_.CLASSE}
                 return console.log(err);
             }
 
-            console.log(`${_.CLASSE}Cest criado!`);
+            console.log(`${_.cest.classe}Cest criado!`);
         });
 }

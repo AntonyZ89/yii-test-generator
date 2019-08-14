@@ -5,37 +5,41 @@ var exports = module.exports = {};
 /**
  * @param {Object} _
  * 
- * @param {String} _.CLASSE
+ * @param {String} _.fixture
  * 
- * @param {Object} _.FIXTURE
- * @param {Array}  _.FIXTURE.DEPENDENCIAS
+ * @param {String} _.fixture.classe
+ * @param {Object}  _.fixture.dependence
  */
 exports.createFixture = function (_) {
+    console.log(_);
 
     let dependencias = "";
 
-    if (_.FIXTURE.DEPENDENCIAS) {
+    if (_.fixture.dependence) {
         dependencias = `
         $this->depends = [
-            ${_.FIXTURE.DEPENDENCIAS.map((v, i) => `${(i == 0 ? "" : "\n\t\t\t") + v}Fixture::class`)}
+            ${Object.keys(_.fixture.dependence).map((v, i) => {
+                let d = _.fixture.dependence[v];
+                return `${d}Fixture::class`
+            }).join(',\n\t\t\t')}
         ];
         `
     }
 
     if (!fs.existsSync("fixture"))
         fs.mkdirSync('fixture');
-    fs.writeFile(`fixture/${_.CLASSE}Fixture.php`, `
+    fs.writeFile(`fixture/${_.fixture.classe}Fixture.php`, `
 <?php
 namespace common\\fixtures;
-use common\\models\\${_.CLASSE};
+use common\\models\\${_.fixture.classe};
 use yii\\test\\ActiveFixture;
 
-class ${_.CLASSE}Fixture extends ActiveFixture
+class ${_.fixture.classe}Fixture extends ActiveFixture
 {
     public function init()
     {
-        $this->modelClass = ${_.CLASSE}::class;
-        $this->dataFile = __DIR__ . '/../tests/_data/${_.CLASSE.toLowerCase()}.php';
+        $this->modelClass = ${_.fixture.classe}::class;
+        $this->dataFile = __DIR__ . '/../tests/_data/${_.fixture.classe.toLowerCase()}.php';
         ${dependencias}
         parent::init();
     }
@@ -44,7 +48,7 @@ class ${_.CLASSE}Fixture extends ActiveFixture
                 return console.log(err);
             }
 
-            console.log(`${_.CLASSE}Fixture criado!`);
+            console.log(`${_.fixture.classe}Fixture criado!`);
         });
 }
 

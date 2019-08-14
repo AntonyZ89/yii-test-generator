@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+
+    <style>
+        ul > li {
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body class="container">
@@ -21,97 +27,191 @@
         </div>
 
 
-        <div class="form-group col-12">
+        <div class="form-group col-md-12">
             <label for="cest[namespace]">Namespace</label>
             <input class="form-control" name="cest[namespace]">
         </div>
         <hr>
-        <div class="form-group col-12">
-            <h3 class="text-center">Use (imports)</h3>
+        <div class="form-group col-md-12">
+            <h3 class="text-center">Fixtures</h3>
             <button type="button" class="btn btn-lg btn-success d-block adicionar_use"><i class="fas fa-plus"></i></button>
 
             <ul class="use row">
-                <li class="row col-4">
-                    <input class="form-control col-9" name="cest[use][0]">
-                    <button type="button" class="remover btn btn-danger col-2 remover_use"><i class="fas fa-times"></i></button>
+                <li class="row col-md-4">
+                    <input class="form-control col-md-9" name="cest[fixture][0]">
+                    <button type="button" class="remover btn btn-danger col-md-2 remover_use"><i class="fas fa-times"></i></button>
                 </li>
             </ul>
         </div>
         <hr>
-        <div class="form-group col-12">
-            <h3 class="text-center">Index Method</h3>
-            <div class="row">
-                <div class="form-group col-4">
-                    <label for="cest[index][url]">URL</label>
-                    <input class="form-control" name="cest[index][url]">
-                </div>
-                <div class="form-group col-4">
-                    <label for="cest[index][text]">Texto</label>
-                    <input class="form-control" name="cest[index][text]">
-                </div>
-                <div class="form-group col-4">
-                    <label for="cest[index][element]">Elemento</label>
-                    <input class="form-control" name="cest[index][element]">
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="form-group col-12">
-            <h3 class="text-center">Create Method</h3>
-            <div class="row">
-                <div class="form-group col-4">
-                    <label for="cest[create][url]">URL</label>
-                    <input class="form-control" name="cest[create][url]">
-                </div>
-                <div class="form-group col-4">
-                    <label for="cest[create][text]">Texto</label>
-                    <input class="form-control" name="cest[create][text]">
-                </div>
-                <div class="form-group col-1">
-                    <label for="cest[create][id]">ID</label>
-                    <input class="form-control" name="cest[create][id]">
-                </div>
-                <div class="form-group col-3">
-                    <label for="cest[create][element]">Elemento</label>
-                    <input class="form-control" name="cest[create][element]">
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="form-group col-12">
-            <h3 class="text-center">Update Method</h3>
-            <div class="row">
-                <div class="form-group col-4">
-                    <label for="cest[update][url]">URL</label>
-                    <input class="form-control" name="cest[update][url]">
-                </div>
-                <div class="form-group col-4">
-                    <label for="cest[update][text]">Texto</label>
-                    <input class="form-control" name="cest[update][text]">
-                </div>
-                <div class="form-group col-1">
-                    <label for="cest[update][id]">ID</label>
-                    <input class="form-control" name="cest[update][id]">
-                </div>
-                <div class="form-group col-3">
-                    <label for="cest[update][element]">Elemento</label>
-                    <input class="form-control" name="cest[update][element]">
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="form-group col-12">
-            <h3 class="text-center">Delete Method</h3>
-            <div class="row">
-                <div class="form-group col-4">
-                    <label for="cest[delete][url]">URL</label>
-                    <input class="form-control" name="cest[delete][url]">
-                </div>
-                <div class="form-group col-1">
-                    <label for="cest[delete][id]">ID</label>
-                    <input class="form-control" name="cest[delete][id]">
-                </div>
-            </div>
+        <div class="form-group col-md-12">
+            <h3 class="text-center">Methods</h3>
+            <button type="button" class="btn btn-success btn-lg adicionar_method"><i class="fas fa-plus"></i></button>
+            <br><br>
+            <ul class="action">
+                <li class="row">
+                    <select class="actions form-control col-md-2">
+                        <option>amOnPage</option>
+                        <option>attachFile</option>
+                        <option>checkOption</option>
+                        <option>click</option>
+                        <option>dontSee</option>
+                        <option>dontSeeCheckboxIsChecked</option>
+                        <option>dontSeeCurrentUrlEquals</option>
+                        <option>dontSeeElement</option>
+                        <option>dontSeeInCurrentUrl</option>
+                        <option>dontSeeInField</option>
+                        <option>dontSeeInFormFields</option>
+                        <option>dontSeeInTitle</option>
+                        <option>dontSeeLink</option>
+                        <option>dontSeeOptionIsSelected</option>
+                        <option>dontSeeRecord</option>
+                        <option>fillField</option>
+                        <option>see</option>
+                        <option>seeCheckboxIsChecked</option>
+                        <option>seeCurrentUrlEquals</option>
+                        <option>seeElement</option>
+                        <option>seeLink</option>
+                        <option>seePageNotFound</option>
+                        <option>selectOption</option>
+                        <option>sendAjaxRequest</option>
+                        <option>submitForm</option>
+                    </select>
+                    <button type="button" class="adicionar_action btn btn-lg btn-success"><i class="fas fa-check"></i></button>
+                    <div class="form-group col-md-12">
+                        <label for="cest[methods][0][nome]">Nome</label>
+                        <input class="form-control" name="cest[methods][0][nome]">
+                    </div>
+                    <ul class="_ac row col-md-12"></ul>
+                    <!--
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][amOnPage]">amOnPage</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][amOnPage]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][attachFile]">attachFile</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][attachFile]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][checkOption]">checkOption</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][checkOption]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][click]">click</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][click]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSee]">dontSee</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSee]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeCheckboxIsChecked]">dontSeeCheckboxIsChecked</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeCheckboxIsChecked]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeCurrentUrlEquals]">dontSeeCurrentUrlEquals</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeCurrentUrlEquals]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeElement]">dontSeeElement</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeElement]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeInCurrentUrl]">dontSeeInCurrentUrl</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeInCurrentUrl]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeInField]">dontSeeInField</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeInField]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeInFormFields]">dontSeeInFormFields</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeInFormFields]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeInTitle]">dontSeeInTitle</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeInTitle]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeLink]">dontSeeLink</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeLink]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeOptionIsSelected]">dontSeeOptionIsSelected</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeOptionIsSelected]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][dontSeeRecord]">dontSeeRecord</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][dontSeeRecord]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][fillField]">fillField</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][fillField]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][see]">see</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][see]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][seeCheckboxIsChecked]">seeCheckboxIsChecked</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][seeCheckboxIsChecked]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][seeCurrentUrlEquals]">seeCurrentUrlEquals</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][seeCurrentUrlEquals]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][seeElement]">seeElement</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][seeElement]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][seeLink]">seeLink</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][seeLink]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][seePageNotFound]">seePageNotFound</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][seePageNotFound]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][selectOption]">selectOption</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][selectOption]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][sendAjaxRequest]">sendAjaxRequest</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][sendAjaxRequest]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label class="col-md-12" for="cest[methods][0][submitForm]">submitForm</label>
+                        <input class="form-control col-md-11" name="cest[methods][0][submitForm]">
+                        <button class="btn btn-danger btn-lg col-md-1" type="button"><i class="fas fa-times"></i></button>
+                    </div>
+                -->
+                </li>
+            </ul>
         </div>
 
         <button class="btn btn-lg btn-block btn-success" type="submit">Enviar</button>

@@ -2,13 +2,47 @@ const cest = require("./scripts/cest/cest");
 const data = require("./scripts/data/data");
 const fixture = require("./scripts/fixture/fixture");
 
+var bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const port = 3000
+
+app.use(bodyParser.urlencoded());
+const port = 3000;
 
 app.get('/', (req, res) => res.sendFile(__dirname+"/index.html"));
+
 app.get('/cest', (req, res) => res.sendFile(__dirname+"/cest.html"));
+
+app.post('/gerar/cest', (req, res) => {
+    try {
+        var resultado = JSON.parse(req.body.resultado);
+        cest.createCest(resultado);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/gerar/data', (req, res) => {
+    try {
+        var resultado = JSON.parse(req.body.resultado);
+        data.createData(resultado);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/gerar/fixture', (req, res) => {
+    try {
+        var resultado = JSON.parse(req.body.resultado);
+        fixture.createFixture(resultado);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 app.get('/data', (req, res) => res.sendFile(__dirname+"/data.html"));
+
+
 app.get('/fixture', (req, res) => res.sendFile(__dirname+"/fixture.html"));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
@@ -17,6 +51,7 @@ app.use(express.static(__dirname + "/node_modules/bootstrap/dist/"));
 app.use(express.static(__dirname));
 app.use('/jquery', express.static(__dirname + "/node_modules/jquery/dist/jquery.min.js"));
 
+/*
 const DADOS = [
     {
         CLASSE: "VagaCest",
@@ -67,10 +102,4 @@ const DADOS = [
         }
     }
 ];
-
-for (let d of DADOS) {
-    return;
-    cest.createCest(d);
-    data.createData(d);
-    fixture.createFixture(d);
-}
+*/

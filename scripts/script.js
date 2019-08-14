@@ -9,44 +9,37 @@ $('form').submit(function () {
     resultado[gerar] = {};
 
     for (let i of serialize) {
-        console.log(i);
-        let externo = i.name.indexOf(gerar) === -1;
-
         let name = i.name.replace(gerar, "");
         let keys = obterAgrupados(name);
 
         let k_anterior = resultado[gerar];
 
-        console.log("----------------------------------------");
-        console.log("k_anterior = "+k_anterior);
-
         for (let k = 0; k < keys.length; k++) {
             let v = keys[k];
-            console.log("v: "+v);
-            console.log("k2: "+k_anterior);
 
             if (k === keys.length - 1) {
-                console.log(k_anterior);
-                if(/\d+/.test(v)) {
-                    console.log("::: "+k_anterior);
-                    k_anterior = [];
-                    k_anterior[v] = i.value;
-                    break;
-                } else {
-                    k_anterior[v] = i.value;
-                }
-            } else if (k_anterior) {
-                // k_anterior[v];
-                k_anterior[v] = {};
-                k_anterior = k_anterior[v];
+                k_anterior[v] = i.value;
             } else {
-                resultado[v] = {};
-                k_anterior = resultado[v];
+                if(!k_anterior[v])
+                    k_anterior[v] = {};
+                k_anterior = k_anterior[v];
             }
         }
     }
 
     console.log(resultado);
+
+    resultado = JSON.stringify(resultado);
+    $.ajax({
+        type: "post",
+        url: "/gerar"+location.pathname,
+        data: {resultado},
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
+        }
+    });
+
     return false;
 });
 
