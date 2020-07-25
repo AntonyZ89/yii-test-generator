@@ -1,0 +1,15 @@
+{
+  "name": "yii-test-generator",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/antonyz89/yii-test-generator",
+  "author": "Antony <antonyz.dev@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1"
+  }
+}

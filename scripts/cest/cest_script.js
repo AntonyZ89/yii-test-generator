@@ -26,14 +26,21 @@ $(document).on('click', '.adicionar_action', function () {
 
     _ac.append(
         actionHTML
-        .replace(/\{index\}/g, actions.parent().index())
-        .replace(/\{nome\}/g, actions.val())
-        .replace(/\{index2\}/g, _ac.children().length)
+        .replace(/{index}/g, actions.parent().index())
+        .replace(/{nome}/g, actions.val())
+        .replace(/{index2}/g, _ac.children().length)
         );
 });
 
-$(document).on('click', '.adicionar_method', function() {
-    let newMethod = $($('.action > li:nth-child(1)')[0].outerHTML.replace(/\[\d+\]/g, `[${$('.action > li').length}]`));
+$(document).on('click', '.add-method', function() {
+    let newMethod = $($('.action > li:nth-child(1)')[0].outerHTML.replace(/\[\d+]/g, `[${$('.action > li').length}]`));
     newMethod.find('._ac').empty();
     $('.action').append(newMethod);
+});
+
+$(document).on('click', '.delete-method', function () {
+    const li = $(this).closest('li');
+    if (li.parent().find('li').length > 1) {
+        li.remove();
+    }
 });

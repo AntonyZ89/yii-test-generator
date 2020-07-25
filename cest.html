@@ -46,10 +46,13 @@
         <hr>
         <div class="form-group col-md-12">
             <h3 class="text-center">Methods</h3>
-            <button type="button" class="btn btn-success btn-lg adicionar_method"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-success btn-lg add-method"><i class="fas fa-plus"></i></button>
             <br><br>
             <ul class="action">
                 <li class="row">
+                    <button class="delete-method btn btn-danger">
+                        <i class="fas fa-minus"></i>
+                    </button>
                     <select class="actions form-control col-md-2">
                         <option>amOnPage</option>
                         <option>attachFile</option>
@@ -77,7 +80,9 @@
                         <option>sendAjaxRequest</option>
                         <option>submitForm</option>
                     </select>
-                    <button type="button" class="adicionar_action btn btn-lg btn-success"><i class="fas fa-check"></i></button>
+                    <button type="button" class="adicionar_action btn btn-lg btn-success">
+                        <i class="fas fa-check"></i>
+                    </button>
                     <div class="form-group col-md-12">
                         <label for="cest[methods][0][nome]">Nome</label>
                         <input class="form-control" name="cest[methods][0][nome]">

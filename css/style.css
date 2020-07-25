@@ -23,7 +23,6 @@ ul.use, ul.data, ul.dependence, ul._ac {
 
 ul.use > li, ul.data > li, ul.dependence > li {
     margin: 5px 2px 2px 2px;
-    margin-top: 5px;
 }
 
 ul.use > li > input, ul.data > li > input:nth-of-type(2), ul.dependence > li > input {
@@ -57,4 +56,9 @@ ul.action > li {
 
 .geradores > a {
     width: 200px;
+}
+
+.delete-method {
+    position: absolute;
+    right: 10px;
 }

@@ -12,38 +12,34 @@ const port = 3000;
 app.get('/', (req, res) => res.sendFile(__dirname+"/index.html"));
 
 app.get('/cest', (req, res) => res.sendFile(__dirname+"/cest.html"));
-
 app.post('/gerar/cest', (req, res) => {
     try {
         var resultado = JSON.parse(req.body.resultado);
         cest.createCest(resultado);
     } catch (error) {
-        console.log(error);
+        console.log('error', error);
     }
 });
 
+app.get('/data', (req, res) => res.sendFile(__dirname+"/data.html"));
 app.post('/gerar/data', (req, res) => {
     try {
         var resultado = JSON.parse(req.body.resultado);
         data.createData(resultado);
     } catch (error) {
-        console.log(error);
+        console.log('error', error);
     }
 });
 
+app.get('/fixture', (req, res) => res.sendFile(__dirname+"/fixture.html"));
 app.post('/gerar/fixture', (req, res) => {
     try {
         var resultado = JSON.parse(req.body.resultado);
         fixture.createFixture(resultado);
     } catch (error) {
-        console.log(error);
+        console.log('error', error);
     }
 });
-
-app.get('/data', (req, res) => res.sendFile(__dirname+"/data.html"));
-
-
-app.get('/fixture', (req, res) => res.sendFile(__dirname+"/fixture.html"));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 

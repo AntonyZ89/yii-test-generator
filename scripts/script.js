@@ -2,7 +2,7 @@ $('form').submit(function () {
 
     let serialize = $(this).serializeArray();
 
-    let gerar = serialize[0].name.replace(/\[.+\]/g, "");
+    let gerar = serialize[0].name.replace(/\[.+]/g, "");
 
     let resultado = {};
 
@@ -44,12 +44,12 @@ $('form').submit(function () {
 });
 
 function obterAgrupados(txt) {
-    var a = [], r = [];
-    for (var i = 0; i < txt.length; i++) {
-        if (txt.charAt(i) == '[') {
+    const a = [], r = [];
+    for (let i = 0; i < txt.length; i++) {
+        if (txt.charAt(i) === '[') {
             a.push(i);
         }
-        if (txt.charAt(i) == ']') {
+        if (txt.charAt(i) === ']') {
             r.push(txt.substring(a.pop() + 1, i));
         }
     }
